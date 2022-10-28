@@ -24,7 +24,7 @@ jobs:
  
     infrastructure-incremental-test:
         needs: publish-bicep
-        uses: rbvdberg-hotmail/github-actions-start/.github/workflows/deployment.yml
+        uses: rbvdberg-hotmail/github-actions-start/.github/workflows/deployment.yml@main
         with:
             environment: test
         secrets:
@@ -32,7 +32,7 @@ jobs:
  
     infrastructure-incremental-prod:
         needs: infrastructure-incremental-test
-        uses: rbvdberg-hotmail/github-actions-start/.github/workflows/deployment.yml
+        uses: rbvdberg-hotmail/github-actions-start/.github/workflows/deployment.yml@main
         with:
             environment: prod
         secrets:
