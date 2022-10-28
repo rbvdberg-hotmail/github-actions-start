@@ -21,3 +21,19 @@ jobs:
               with:
                   name: bicep-templates
                   path: deployment/*.json
+ 
+    infrastructure-incremental-test:
+        needs: publish-bicep
+        uses: rbvdberg-hotmail/github-actions-start/.github/workflows/deployment.yml@version
+        with:
+            environment: test
+        secrets:
+            azure-login: ${{ secrets.AZURE_TEST }}
+ 
+    infrastructure-incremental-prod:
+        needs: infrastructure-incremental-test
+        uses: rbvdberg-hotmail/github-actions-start/.github/workflows/deployment.yml@version
+        with:
+            environment: prod
+        secrets:
+            azure-login: ${{ secrets.AZURE_PROD }}

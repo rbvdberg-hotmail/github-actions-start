@@ -1,0 +1,11 @@
+name: Deployment workflow
+ 
+on:
+    workflow_call:
+        inputs:
+            environment:
+                required: true
+                type: string
+        secrets:
+            azure-login:
+                required: true
