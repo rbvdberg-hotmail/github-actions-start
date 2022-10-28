@@ -26,20 +26,20 @@ jobs:
             - name: Deploy Europe
               uses: Azure/cli@1.0.4
               with:
-                  azcliversion: 2.23.0
+                  azcliversion: 2.41.0
                   inlineScript: az deployment sub create --name europe --location westeurope    --template-file ./infrastructure/main.json --parameters    ./infrastructure/${{ inputs.environment }}.parameters.json     --parameters locationAbbriviation=we
             - name: Deploy United States
               uses: Azure/cli@1.0.4
               with:
-                  azcliversion: 2.23.0
+                  azcliversion: 2.41.0
                   inlineScript: az deployment sub create --name america --location eastus    --template-file ./infrastructure/main.json --parameters    ./infrastructure/${{ inputs.environment }}.parameters.json     --parameters locationAbbriviation=us
             - name: Deploy Asia
               uses: Azure/cli@1.0.4
               with:
-                  azcliversion: 2.23.0
+                  azcliversion: 2.41.0
                   inlineScript: az deployment sub create --name asia --location eastasia     --template-file ./infrastructure/main.json --parameters     ./infrastructure/${{ inputs.environment }}.parameters.json     --parameters locationAbbriviation=asi
             - name: Traffic Manager
               uses: Azure/cli@1.0.4
               with:
-                  azcliversion: 2.23.0
+                  azcliversion: 2.41.0
                   inlineScript: az deployment sub create --location westeurope    --template-file ./infrastructure/trafficmgr.json     --parameters ./infrastructure/${{ inputs.environment }}.parameters.json
